@@ -196,8 +196,8 @@ def finalize_invoice(request, pk):
 
 @extend_schema(
     summary="Record payment",
-    description="Records a payment against an invoice. Invoice must be FINALIZED (not DRAFT). Prevents overpayment.",
-    request=PaymentSerializer,  # or a custom serializer with only amount/reference
+    description="Records a payment against an invoice. Invoice must be FINALIZED. Prevents overpayment.",
+    request=PaymentSerializer,
     responses={
         201: InvoiceSerializer,
         400: OpenApiResponse(description="Validation / overpayment"),
